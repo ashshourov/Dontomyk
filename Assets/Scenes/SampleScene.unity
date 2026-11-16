@@ -3143,7 +3143,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.2
+  m_fontSize: 28.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5049,7 +5049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23487778, y: 0.23248538}
   m_AnchorMax: {x: 0.70562595, y: 0.75900006}
-  m_AnchoredPosition: {x: -3.2499084, y: 0.5}
+  m_AnchoredPosition: {x: -3.249916, y: 0.5}
   m_SizeDelta: {x: -6.500099, y: 7.6373997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149114293
@@ -5389,7 +5389,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.9
+  m_fontSize: 36.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6958,7 +6958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0738376, y: 0.05769167}
   m_AnchorMax: {x: 0.93700004, y: 0.16530952}
-  m_AnchoredPosition: {x: 10, y: -6.000366}
+  m_AnchoredPosition: {x: 10, y: -6.000244}
   m_SizeDelta: {x: -0.12809753, y: -17.262695}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200206169
@@ -8850,81 +8850,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263280900}
-  m_CullTransparentMesh: 1
---- !u!1 &263416653
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 263416654}
-  - component: {fileID: 263416656}
-  - component: {fileID: 263416655}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &263416654
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263416653}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1428139874}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.26452133}
-  m_AnchoredPosition: {x: 0, y: -3.8641357}
-  m_SizeDelta: {x: 0, y: -7.7282715}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &263416655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263416653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8740711d2f22ec54ab4ad87f1a2069a3, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &263416656
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263416653}
   m_CullTransparentMesh: 1
 --- !u!1 &269663285
 GameObject:
@@ -15749,7 +15674,7 @@ GameObject:
   - component: {fileID: 524277561}
   - component: {fileID: 524277560}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Question Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15774,7 +15699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.31}
   m_AnchorMin: {x: 0.082453, y: 0.2345545}
   m_AnchorMax: {x: 0.93669236, y: 0.36647874}
-  m_AnchoredPosition: {x: -1.5, y: 3.500061}
+  m_AnchoredPosition: {x: -1.5, y: 3.5}
   m_SizeDelta: {x: 17.636597, y: -57.167114}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &524277560
@@ -17920,7 +17845,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 119.75
+  m_fontSize: 131.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -18057,7 +17982,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.7
+  m_fontSize: 35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -18512,6 +18437,7 @@ GameObject:
   - component: {fileID: 619654328}
   - component: {fileID: 619654330}
   - component: {fileID: 619654329}
+  - component: {fileID: 619654331}
   m_Layer: 5
   m_Name: Kuru
   m_TagString: Untagged
@@ -18578,6 +18504,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619654327}
   m_CullTransparentMesh: 1
+--- !u!114 &619654331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619654327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a7c1e26d9b405c1e0f8b3d5c7a9e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KuruMeter
+  numberLabel: {fileID: 599773636}
+  arc: {fileID: 0}
+  starSprite: {fileID: 21300000, guid: a9c4e1b27d5f4a6c8e0b3d1f5a7c9e24, type: 3}
+  star: {fileID: 0}
 --- !u!1 &619860284
 GameObject:
   m_ObjectHideFlags: 0
@@ -23054,7 +22996,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.65
+  m_fontSize: 56.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -39104,8 +39046,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.091000006, y: 0.6696119}
   m_AnchorMax: {x: 0.374, y: 0.8791323}
-  m_AnchoredPosition: {x: 261.46, y: -129.80295}
-  m_SizeDelta: {x: 573.6819, y: -21.3743}
+  m_AnchoredPosition: {x: 261.46, y: -148}
+  m_SizeDelta: {x: 573.6819, y: 36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1313816857
 MonoBehaviour:
@@ -39154,12 +39096,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.75
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 26
+  m_fontSizeMax: 34
   m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -42156,8 +42098,8 @@ RectTransform:
   - {fileID: 1188835357}
   - {fileID: 619654328}
   - {fileID: 524277559}
-  - {fileID: 263416654}
   - {fileID: 1200365646}
+  - {fileID: 1900000002}
   m_Father: {fileID: 1456601726}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -56466,6 +56408,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899037970}
   m_CullTransparentMesh: 1
+--- !u!1 &1900000001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1900000002}
+  - component: {fileID: 1900000003}
+  m_Layer: 5
+  m_Name: QuestionBoard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1900000002
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900000001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1428139874}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1900000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d4f2e15c3a4b7f9d0e1f2a3b4c5d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionBoard
+  questions:
+  - {fileID: 11400000, guid: c1aa0001e97228b4a8f45b34e4761001, type: 2}
+  - {fileID: 11400000, guid: c1aa0002e97228b4a8f45b34e4761002, type: 2}
+  - {fileID: 11400000, guid: c1aa0003e97228b4a8f45b34e4761003, type: 2}
+  - {fileID: 11400000, guid: c1aa0004e97228b4a8f45b34e4761004, type: 2}
+  cardOne: {fileID: 1960318854961119208, guid: 3e4a49242ede2554d8914704b29372e6, type: 3}
+  cardTwo: {fileID: 2366383306432226839, guid: 5fa9bc00a065e384382d371e33b53f6f, type: 3}
+  cardThree: {fileID: 7941915870770434082, guid: 17071f6e22e883347aefea8c5577faaa, type: 3}
+  questionRoot: {fileID: 0}
+  headlineLabel: {fileID: 0}
+  promptLabel: {fileID: 0}
 --- !u!1 &1901674133
 GameObject:
   m_ObjectHideFlags: 0
@@ -56829,7 +56830,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80.55
+  m_fontSize: 87.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

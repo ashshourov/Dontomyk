@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c3e1d04b2f4a6e8c9d0e1f2a3b4c5d, type: 3}
+  m_Name: Q3_Promotion
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  questionId: friend_promoted
+  headline: FRIEND PROMOTED
+  prompt: A friend just got promoted over you. What will you do?
+  choices:
+  - choiceId: go_quiet
+    title: GO QUIET
+    picture: {fileID: 21300000, guid: a11a0004e97228b4a8f45b34e4761d04, type: 3}
+    smile: 6
+    heart: -4
+    hours: 0
+    selfMode: 2
+    deltaDopamine: 6
+    deltaSocial: -8
+    deltaKuru: -6
+    selflessness: 0.4
+  - choiceId: public_congrats
+    title: PUBLIC CONGRATS
+    picture: {fileID: 21300000, guid: a11a0005e97228b4a8f45b34e4761d05, type: 3}
+    smile: 4
+    heart: 10
+    hours: 1
+    selfMode: 3
+    deltaDopamine: -6
+    deltaSocial: 4
+    deltaKuru: 8
+    selflessness: 1.4
+  - choiceId: cut_them_down
+    title: CUT THEM DOWN
+    picture: {fileID: 21300000, guid: a11a0006e97228b4a8f45b34e4761d06, type: 3}
+    smile: 8
+    heart: -12
+    hours: 0
+    selfMode: 0
+    deltaDopamine: 10
+    deltaSocial: -5
+    deltaKuru: -6
+    selflessness: 0.4

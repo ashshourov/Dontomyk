@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c3e1d04b2f4a6e8c9d0e1f2a3b4c5d, type: 3}
+  m_Name: Q4_Wallet
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionData
+  questionId: found_wallet
+  headline: WALLET ON THE FLOOR
+  prompt: You find a wallet on the office floor. What will you do?
+  choices:
+  - choiceId: keep_it
+    title: KEEP IT
+    picture: {fileID: 21300000, guid: a11a0007e97228b4a8f45b34e4761d07, type: 3}
+    smile: 12
+    heart: -6
+    hours: 0
+    selfMode: 0
+    deltaDopamine: 12
+    deltaSocial: -4
+    deltaKuru: -6
+    selflessness: 0.4
+  - choiceId: post_the_return
+    title: POST THE RETURN
+    picture: {fileID: 21300000, guid: a11a0008e97228b4a8f45b34e4761d08, type: 3}
+    smile: 4
+    heart: 10
+    hours: 1
+    selfMode: 3
+    deltaDopamine: -6
+    deltaSocial: 3
+    deltaKuru: 8
+    selflessness: 1.5
+  - choiceId: walk_away
+    title: WALK AWAY
+    picture: {fileID: 21300000, guid: a11a0009e97228b4a8f45b34e4761d09, type: 3}
+    smile: 6
+    heart: -10
+    hours: 0
+    selfMode: 2
+    deltaDopamine: 5
+    deltaSocial: -10
+    deltaKuru: -6
+    selflessness: 0.4
