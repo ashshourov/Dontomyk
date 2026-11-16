@@ -14,9 +14,12 @@ public class QuestionBoard : MonoBehaviour
     [SerializeField] private TMP_Text promptLabel;
 
     private ChoiceCardView[] cards;
+    private RectTransform[] cardRects;
+    private Vector3[] cardBaseScale;
     private RectTransform drawer;
     private int index;
     private bool busy;
+    private float laidOutWidth;
 
     private void Start()
     {
@@ -113,24 +116,8 @@ public class QuestionBoard : MonoBehaviour
         if (drawer == null)
             return;
 
-        Canvas.ForceUpdateCanvases();
-        float width = drawer.rect.width;
-        if (width < 100f)
-            width = Screen.width;
-
-        float boardBottom = drawer.rect.yMin + drawer.rect.height * 0.22f;
-        if (questionRoot != null)
-        {
-            Bounds bounds = RectTransformUtility.CalculateRelativeRectTransformBounds(drawer, questionRoot);
-            boardBottom = bounds.min.y;
-        }
-
-        float available = boardBottom - drawer.rect.yMin;
-        if (available < 120f)
-            available = drawer.rect.height * 0.28f;
-
-        float slot = width / prefabs.Length;
-        float centerY = boardBottom - available * 0.5f;
+        cardRects = new RectTransform[prefabs.Length];
+        cardBaseScale = new Vector3[prefabs.Length];
 
         for (int i = 0; i < prefabs.Length; i++)
         {
@@ -145,7 +132,62 @@ public class QuestionBoard : MonoBehaviour
             rect.anchorMin = new Vector2(0.5f, 0.5f);
             rect.anchorMax = new Vector2(0.5f, 0.5f);
             rect.pivot = new Vector2(0.5f, 0.5f);
+            cardRects[i] = rect;
+            cardBaseScale[i] = rect.localScale;
 
+            ChoiceCardView view = card.GetComponent<ChoiceCardView>();
+            if (view == null)
+                view = card.AddComponent<ChoiceCardView>();
+            cards[i] = view;
+        }
+
+        LayoutCards();
+    }
+
+    private void OnRectTransformDimensionsChange()
+    {
+        if (cards == null || drawer == null)
+            return;
+        if (Mathf.Abs(drawer.rect.width - laidOutWidth) < 1f)
+            return;
+
+        LayoutCards();
+    }
+
+    private void LayoutCards()
+    {
+        if (drawer == null || cardRects == null)
+            return;
+
+        Canvas.ForceUpdateCanvases();
+        float width = drawer.rect.width;
+        if (width < 100f)
+            width = ((RectTransform)transform).rect.width;
+        if (width < 100f)
+            return;
+
+        float boardBottom = drawer.rect.yMin + drawer.rect.height * 0.22f;
+        if (questionRoot != null)
+        {
+            Bounds bounds = RectTransformUtility.CalculateRelativeRectTransformBounds(drawer, questionRoot);
+            boardBottom = bounds.min.y;
+        }
+
+        float available = boardBottom - drawer.rect.yMin;
+        if (available < 120f)
+            available = drawer.rect.height * 0.28f;
+
+        float slot = width / cardRects.Length;
+        float centerY = boardBottom - available * 0.5f;
+        laidOutWidth = width;
+
+        for (int i = 0; i < cardRects.Length; i++)
+        {
+            RectTransform rect = cardRects[i];
+            if (rect == null)
+                continue;
+
+            rect.localScale = cardBaseScale[i];
             float cardWidth = Mathf.Abs(rect.rect.width * rect.localScale.x);
             float cardHeight = Mathf.Abs(rect.rect.height * rect.localScale.y);
             float fit = 1f;
@@ -153,16 +195,10 @@ public class QuestionBoard : MonoBehaviour
                 fit = Mathf.Min(fit, slot * 0.9f / Mathf.Max(cardWidth, 1f));
             if (cardHeight > available * 0.92f)
                 fit = Mathf.Min(fit, available * 0.92f / Mathf.Max(cardHeight, 1f));
-            if (fit < 0.999f)
-                rect.localScale *= fit;
+            rect.localScale = cardBaseScale[i] * fit;
 
-            float x = (i - (prefabs.Length - 1) * 0.5f) * slot;
+            float x = (i - (cardRects.Length - 1) * 0.5f) * slot;
             rect.anchoredPosition = new Vector2(x, centerY);
-
-            ChoiceCardView view = card.GetComponent<ChoiceCardView>();
-            if (view == null)
-                view = card.AddComponent<ChoiceCardView>();
-            cards[i] = view;
         }
     }
 

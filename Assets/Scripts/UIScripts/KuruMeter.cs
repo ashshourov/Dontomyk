@@ -4,10 +4,9 @@ using UnityEngine.UI;
 
 public class KuruMeter : MonoBehaviour
 {
+    [SerializeField] private TMP_Text titleLabel;
     [SerializeField] private TMP_Text numberLabel;
     [SerializeField] private Image arc;
-    [SerializeField] private Sprite starSprite;
-    [SerializeField] private RectTransform star;
 
     private float shown;
 
@@ -16,14 +15,17 @@ public class KuruMeter : MonoBehaviour
         if (PlayerState.Instance == null && GetComponent<PlayerState>() == null)
             gameObject.AddComponent<PlayerState>();
 
+        Image badge = GetComponent<Image>();
+        if (badge != null)
+            badge.preserveAspect = true;
+
+        if (titleLabel == null)
+            titleLabel = FindLabel(true);
         if (numberLabel == null)
-            numberLabel = FindNumberLabel();
+            numberLabel = FindLabel(false);
 
         if (arc == null)
             arc = CreateArc();
-
-        if (star == null)
-            star = CreateStar();
 
         shown = PlayerState.Instance != null ? PlayerState.Instance.Kuru : 26f;
         ApplyShown();
@@ -81,33 +83,49 @@ public class KuruMeter : MonoBehaviour
             }
         }
 
-        PlaceStar();
+        FitLabels();
     }
 
-    private void PlaceStar()
+    private void FitLabels()
     {
-        if (star == null)
+        Rect bounds = ((RectTransform)transform).rect;
+        float diameter = Mathf.Min(Mathf.Abs(bounds.width), Mathf.Abs(bounds.height));
+        if (diameter <= 1f)
             return;
 
-        Rect bounds = ((RectTransform)transform).rect;
-        float diameter = Mathf.Min(bounds.width, bounds.height);
-        if (diameter <= 1f)
-            diameter = 160f;
-
-        float starHeight = diameter * 0.20f;
-        star.sizeDelta = new Vector2(starHeight * 1.08f, starHeight);
-        // Bottom point rests on the purple stroke. It does not pass into the dial.
-        star.anchoredPosition = new Vector2(0f, diameter * 0.44f + starHeight * 0.42f);
-        star.SetSiblingIndex(arc != null ? arc.transform.GetSiblingIndex() + 1 : 0);
+        float width = diameter * 0.68f;
+        FitLabel(titleLabel, diameter * 0.16f, width, diameter * 0.16f, diameter * 0.13f);
+        FitLabel(numberLabel, -diameter * 0.08f, width, diameter * 0.34f, diameter * 0.32f);
     }
 
-    private TMP_Text FindNumberLabel()
+    private static void FitLabel(TMP_Text label, float centerY, float width, float height, float maxSize)
+    {
+        if (label == null)
+            return;
+
+        RectTransform rect = label.rectTransform;
+        rect.anchorMin = new Vector2(0.5f, 0.5f);
+        rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.pivot = new Vector2(0.5f, 0.5f);
+        rect.sizeDelta = new Vector2(width, height);
+        rect.anchoredPosition = new Vector2(0f, centerY);
+
+        label.textWrappingMode = TextWrappingModes.NoWrap;
+        label.overflowMode = TextOverflowModes.Overflow;
+        label.enableAutoSizing = true;
+        label.fontSizeMin = 10f;
+        label.fontSizeMax = Mathf.Max(12f, maxSize);
+        label.alignment = TextAlignmentOptions.Center;
+    }
+
+    private TMP_Text FindLabel(bool title)
     {
         TMP_Text[] labels = GetComponentsInChildren<TMP_Text>(true);
         for (int i = 0; i < labels.Length; i++)
         {
             string value = labels[i].text == null ? string.Empty : labels[i].text.ToUpperInvariant();
-            if (!value.Contains("KURU"))
+            bool isTitle = value.Contains("KURU");
+            if (isTitle == title)
                 return labels[i];
         }
 
@@ -137,33 +155,6 @@ public class KuruMeter : MonoBehaviour
         image.fillAmount = 0.26f;
         image.raycastTarget = false;
         return image;
-    }
-
-    private RectTransform CreateStar()
-    {
-        Sprite sprite = starSprite;
-#if UNITY_EDITOR
-        if (sprite == null)
-            sprite = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/UIElements/kuru-star.png");
-#endif
-        GameObject starObject = new GameObject("Kuru Star", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
-        starObject.transform.SetParent(transform, false);
-
-        RectTransform rect = starObject.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0.5f, 0.5f);
-        rect.anchorMax = new Vector2(0.5f, 0.5f);
-        rect.pivot = new Vector2(0.5f, 0.5f);
-
-        Image image = starObject.GetComponent<Image>();
-        image.sprite = sprite;
-        image.preserveAspect = true;
-        image.raycastTarget = false;
-
-        TMP_Text[] labels = GetComponentsInChildren<TMP_Text>(true);
-        for (int i = 0; i < labels.Length; i++)
-            labels[i].transform.SetAsLastSibling();
-
-        return rect;
     }
 
     private static Sprite ringSprite;
