@@ -250,17 +250,23 @@ public class QuestionBoard : MonoBehaviour
             return;
 
         QuestionData question = questions[index];
-        if (question != null && question.choices != null && PlayerState.Instance != null)
+        ChoiceOption picked = null;
+        if (question != null && question.choices != null)
         {
             for (int i = 0; i < question.choices.Length; i++)
             {
                 if (question.choices[i].choiceId != choiceId)
                     continue;
 
-                ChoiceResolver.Resolve(PlayerState.Instance, question.choices[i]);
+                picked = question.choices[i];
                 break;
             }
         }
+
+        if (picked != null && PlayerState.Instance != null)
+            ChoiceResolver.Resolve(PlayerState.Instance, picked);
+        if (picked != null)
+            ChoiceReaction.Play(picked);
 
         StartCoroutine(DismissThenNext());
     }
